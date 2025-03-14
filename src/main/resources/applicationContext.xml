@@ -10,18 +10,22 @@
     <context:property-placeholder location="musicPlayer.properties"/>
 
     <bean id="musicBean"
-          class="org.springcourse.RapMusic">
+          class="org.springcourse.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic">
     </bean>
+
 
     <!-- через setter -->
-    <bean id="musicPlayer"
-          class="org.springcourse.MusicPlayer"
-          scope="prototype">
-        <property name="music" ref="musicBean"/>
+    <!--    <bean id="musicPlayer"-->
+    <!--          class="org.springcourse.MusicPlayer"-->
+    <!--          scope="prototype">-->
+    <!--        <property name="music" ref="musicBean"/>-->
 
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+    <!--        <property name="name" value="${musicPlayer.name}"/>-->
+    <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+    <!--    </bean>-->
 
     <!-- через коструктор -->
     <!--    <bean id="musicPlayer"-->
